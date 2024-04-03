@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <div class="main">
+    <div class="left">
+      <form action="/createFile" method="post">
+        <input type="text" placeholder="Create file" name="createFile">
+        <button>submit</button>
+      </form>
+
+
+      <% readUploads.forEach((file)=>{ %>
+
+       <li> <a href="/<%= file%>"><%= file%></a> <a href="/delete/<%= file%>">❌</a></li>
+        
+      <% }) %>
+    </div>
+
+    
+    <div class="right">
+     <form action="/update/<%= filename%>" method="post">
+        <textarea name="updateData" id="" cols="70" rows="30">
+          <%= fileData%>
+        </textarea>
+        <button>submit</button>
+     </form>
+    </div>
+  </div>
+</body>
+</html>
